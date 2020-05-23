@@ -2,15 +2,17 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 
-<%= require 'open-uri'
-require 'nokogiri'
+<% require 'open-uri' %>
+<% require 'nokogiri' %>
 
-url = "https://news.ycombinator.com/news"
+<% url = "https://news.ycombinator.com/news" %>
 
-html_file = open(url).read
-html_doc = Nokogiri::HTML(html_file)
+<% html_file = open(url).read %>
+<% html_doc = Nokogiri::HTML(html_file) %>
 
-html_doc.search('.title a').each do |element|
-  puts element.text.strip
-  puts element.attribute('href').value
-end %>
+<% html_doc.search('.title a').each do |element| %>
+  <%= element.attribute('href').value %>
+  <%= element.children.text %>
+<% end  %>
+
+
