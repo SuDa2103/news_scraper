@@ -32,10 +32,9 @@
 
     <table>
       <tr><strong>The Economist</strong></tr>
-      <% html_doc.search('.headline-link').each do |element| %>
+      <% html_doc.search('.headline-link').each do |element_2| %>
         <tr>
-          <td><%= element.text %></td>
-          <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+          <td><a href="https://www.economist.com/<%= element_2.attribute('href').value %>"><%= element_2.children.text %></a></td>
         <br>
         </tr>
     </table>
