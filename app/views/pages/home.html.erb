@@ -1,7 +1,5 @@
 <h1>HomePage</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-
+<br>
 <% require 'open-uri' %>
 <% require 'nokogiri' %>
 
@@ -10,9 +8,15 @@
 <% html_file = open(url).read %>
 <% html_doc = Nokogiri::HTML(html_file) %>
 
+<table>
+<tr><strong>Hacker News</strong></tr>
 <% html_doc.search('.title a').each do |element| %>
-  <%= element.attribute('href').value %>
-  <%= element.children.text %>
+    <tr>
+      <td> <%= element.attribute('href').value.strip %> </td>
+      <td> <%= element.children.text %> </td>
+      <br>
+  </tr>
+  </table>
 <% end  %>
 
 
