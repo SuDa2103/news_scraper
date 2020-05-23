@@ -1,4 +1,4 @@
-#News Scraper App
+# News Scraper App
 
 Make a table of top 10 Hacker News Posts
 Top TechCrunch Posts
