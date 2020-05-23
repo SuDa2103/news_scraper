@@ -1,2 +1,16 @@
 <h1>HomePage</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<%= require 'open-uri'
+require 'nokogiri'
+
+url = "https://news.ycombinator.com/news"
+
+html_file = open(url).read
+html_doc = Nokogiri::HTML(html_file)
+
+html_doc.search('.title a').each do |element|
+  puts element.text.strip
+  puts element.attribute('href').value
+end %>
