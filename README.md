@@ -1,1 +1,6 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+#News Scraper App
+
+Make a table of top 10 Hacker News Posts
+Top TechCrunch Posts
+The Economist most read
+FT most read
