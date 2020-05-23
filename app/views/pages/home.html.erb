@@ -12,10 +12,12 @@
   <table>
     <tr><strong>Hacker News</strong></tr>
     <% html_doc.search('.storylink').each do |element| %>
+    <% unless element.children.text.include? "Ask HN" %>
       <tr>
         <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
       <br>
       </tr>
+    <% end %>
   </table>
 <% end  %>
 
