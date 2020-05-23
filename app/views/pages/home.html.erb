@@ -1,22 +1,24 @@
-<h1>HomePage</h1>
-<br>
-<% require 'open-uri' %>
-<% require 'nokogiri' %>
+<div class="container">
+  <h1>HomePage</h1>
+  <br>
+  <% require 'open-uri' %>
+  <% require 'nokogiri' %>
 
-<% url = "https://news.ycombinator.com/news" %>
+  <% url = "https://news.ycombinator.com/news" %>
 
-<% html_file = open(url).read %>
-<% html_doc = Nokogiri::HTML(html_file) %>
+  <% html_file = open(url).read %>
+  <% html_doc = Nokogiri::HTML(html_file) %>
 
-<table>
-<tr><strong>Hacker News</strong></tr>
-<% html_doc.search('.title a').each do |element| %>
-    <tr>
-      <td> <%= element.attribute('href').value.strip %> </td>
-      <td> <%= element.children.text %> </td>
+  <table>
+    <tr><strong>Hacker News</strong></tr>
+    <% html_doc.search('.storylink').each do |element| %>
+      <tr>
+        <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
       <br>
-  </tr>
+      </tr>
   </table>
 <% end  %>
+
+</div>
 
 
