@@ -1,26 +1,46 @@
+<% require 'open-uri' %>
+<% require 'nokogiri' %>
+
 <div class="container">
   <h1>HomePage</h1>
   <br>
-  <% require 'open-uri' %>
-  <% require 'nokogiri' %>
+  <div class="HN">
+    <% url = "https://news.ycombinator.com/news" %>
 
-  <% url = "https://news.ycombinator.com/news" %>
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
 
-  <% html_file = open(url).read %>
-  <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>Hacker News Front Page</strong></tr>
+      <% html_doc.search('.storylink').each do |element| %>
+      <% unless element.children.text.include? "Ask HN" %>
+        <tr>
+          <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+      <% end %>
+    </table>
+  <% end  %>
+  </div>
 
-  <table>
-    <tr><strong>Hacker News</strong></tr>
-    <% html_doc.search('.storylink').each do |element| %>
-    <% unless element.children.text.include? "Ask HN" %>
-      <tr>
-        <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
-      <br>
-      </tr>
-    <% end %>
-  </table>
-<% end  %>
+  <br>
+  <div class="Economist">
+    <% url = "https://www.economist.com/" %>
 
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+
+    <table>
+      <tr><strong>The Economist</strong></tr>
+      <% html_doc.search('.headline-link').each do |element| %>
+        <tr>
+          <td><%= element.text %></td>
+          <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
 </div>
 
 
