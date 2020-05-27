@@ -1,8 +1,8 @@
 # News Scraper App
 
-Make a table of top 10 Hacker News Posts
+Make a table of top 10 Hacker News Posts - DONE
 
-The Economist most read
+The Economist most read - DONE
 
 FT most read
 
