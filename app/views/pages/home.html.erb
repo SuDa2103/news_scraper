@@ -40,6 +40,68 @@
     </table>
   <% end  %>
   </div>
+  <br>
+
+  <div class="TechCrunch">
+    <% url = "https://techcrunch.com/" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>TechCrunch</strong></tr>
+      <% html_doc.search('h3.mini-view__item__title').each do |element| %>
+        <tr>
+          <td><%= element.text %></td>
+          <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
+    <br>
+
+    <div class="Bloomberg">
+    <% url = "https://www.bloomberg.com/europe" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>Bloomberg</strong></tr>
+      <% html_doc.search('a').each do |element| %>
+        <tr>
+          <td><%= element.text %></td>
+          <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
+  <br>
+
+      <div class="Accel">
+    <% url = "https://www.accel.com/" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>Accel</strong></tr>
+      <% html_doc.search('.top-of-mind-preview a').each do |element| %>
+        <tr>
+          <td><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
+
+
+
+
+
+
+
+
+
 </div>
 
 
