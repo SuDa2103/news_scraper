@@ -7,3 +7,13 @@ The Economist most read - DONE
 FT most read
 
 TechCrunch and Medium don't allow scraping (I think), all of the a tags hidden when you scrape
+
+VCs that have articles that can be scraped:
+Accel
+Andreessen Horowitz
+Bessemer Venture Partners/Atlas
+Founders Fund stories tab
+GGV Capital. Engage. Perspective
+Index Ventures- Although just focussed on their portfolio companies
+Sequoia - Great Stuff on the build page
+
