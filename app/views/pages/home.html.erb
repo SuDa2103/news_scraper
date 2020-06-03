@@ -111,11 +111,12 @@
       <% html_doc.search('.ct-link').each do |element| %>
         <tr>
             <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+          <br>
         </tr>
     </table>
   <% end  %>
   </div>
-  <br>
+
 
 <div class="Index Ventures">
     <% url = "https://www.indexventures.com/perspectives/category/insights/" %>
