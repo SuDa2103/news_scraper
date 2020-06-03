@@ -76,6 +76,23 @@
   </div>
   <br>
 
+    <div class="Bessemer Venture Partners">
+    <% url = "https://www.bvp.com/atlas" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>Bessemer Venture Partners</strong></tr>
+      <% html_doc.search('.post-title').each do |element| %>
+        <tr>
+          <td><a href="https://www.bvp.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
+  <br>
+
 
 
 
