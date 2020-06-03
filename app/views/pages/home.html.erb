@@ -1,7 +1,7 @@
 <% require 'open-uri' %>
 <% require 'nokogiri' %>
 
-<div class="container text-justify">
+<div class="container text-justify backg">
   <h1 class="text-center">VC Insights</h1>
   <br>
   <div class="HN">
@@ -11,7 +11,7 @@
     <% html_doc = Nokogiri::HTML(html_file) %>
 
     <table>
-      <tr><strong>Hacker News Front Page</strong></tr>
+      <tr><h3>Hacker News Front Page</h3></tr>
       <% html_doc.search('.storylink').each do |element| %>
       <% unless element.children.text.include? "Ask HN" %>
         <tr>
@@ -31,7 +31,7 @@
     <% html_doc = Nokogiri::HTML(html_file) %>
 
     <table>
-      <tr><strong>The Economist</strong></tr>
+      <tr><h3>The Economist</h3></tr>
       <% html_doc.search('.headline-link').each do |element_2| %>
         <tr>
           <td><a href="https://www.economist.com/<%= element_2.attribute('href').value %>"><%= element_2.children.text %></a></td>
@@ -48,7 +48,7 @@
     <% html_file = open(url).read %>
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
-      <tr><strong>Accel</strong></tr>
+      <tr><h3>Accel</h3></tr>
       <% html_doc.search('.top-of-mind-preview a').each do |element| %>
         <tr>
           <td><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
@@ -65,7 +65,7 @@
     <% html_file = open(url).read %>
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
-      <tr><strong>Andreessen Horowitz</strong></tr>
+      <tr><h3>Andreessen Horowitz</h3></tr>
        <% counter = 0 %>
       <% html_doc.search('.post-popular h3 a').each do |element| %>
       <% counter += 1 %>
@@ -86,7 +86,7 @@
     <% html_file = open(url).read %>
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
-      <tr><strong>Bessemer Venture Partners</strong></tr>
+      <tr><h3>Bessemer Venture Partners</h3></tr>
       <% counter = 0 %>
       <% html_doc.search('.post-title').each do |element| %>
       <% counter += 1 %>
@@ -107,7 +107,7 @@
     <% html_file = open(url).read %>
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
-      <tr><strong>GGV Capital</strong></tr>
+      <tr><h3>GGV Capital</h3></tr>
       <% html_doc.search('.ct-link').each do |element| %>
         <tr>
             <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
@@ -124,7 +124,7 @@
     <% html_file = open(url).read %>
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
-      <tr><strong>Index Ventures</strong></tr>
+      <tr><h3>Index Ventures</h3></tr>
       <% counter = 0 %>
       <% html_doc.search('.index-grid__list-item a').each do |element| %>
       <% counter += 1 %>
@@ -145,7 +145,7 @@
     <% html_file = open(url).read %>
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
-      <tr><strong>Sequoia</strong></tr>
+      <tr><h3>Sequoia</h3></tr>
       <% counter = 0 %>
       <% html_doc.search('.build a').each do |element| %>
         <% counter += 1 %>
@@ -159,13 +159,6 @@
   <% end  %>
   </div>
   <br>
-
-
-
-
-
-
-
 
 </div>
 
