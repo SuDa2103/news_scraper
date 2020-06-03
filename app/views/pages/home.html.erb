@@ -76,7 +76,7 @@
   </div>
   <br>
 
-    <div class="Bessemer Venture Partners">
+  <div class="Bessemer Venture Partners">
     <% url = "https://www.bvp.com/atlas" %>
 
     <% html_file = open(url).read %>
@@ -93,6 +93,55 @@
   </div>
   <br>
 
+  <div class="GGV Capital">
+    <% url = "https://www.ggvc.com/engage/" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>GGV Capital</strong></tr>
+      <% html_doc.search('.ct-link').each do |element| %>
+        <tr>
+          <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
+  <br>
+
+<div class="Index Ventures">
+    <% url = "https://www.indexventures.com/perspectives/category/insights/" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>Index Ventures</strong></tr>
+      <% html_doc.search('.index-grid__list-item a').each do |element| %>
+        <tr>
+          <td><a href="https://www.indexventures.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
+  <br>
+
+<div class="Sequoia">
+    <% url = "https://www.sequoiacap.com/build/" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><strong>Sequoia</strong></tr>
+      <% html_doc.search('.build a').each do |element| %>
+        <tr>
+           <td><a href="https://www.sequoiacap.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+        <br>
+        </tr>
+    </table>
+  <% end  %>
+  </div>
+  <br>
 
 
 
