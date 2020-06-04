@@ -3,6 +3,8 @@
 
 <div class="container text-justify backg">
   <h1 class="text-center">VC Insights</h1>
+  <br>
+  <p> Some of the top Venture Capital firms in the world post insightful content, which can be useful to both investors and founders alike. Below we have added a quick list of links to the content that some of the worlds most famous VCs are posting </p>
 
 
 
@@ -86,6 +88,25 @@
   </div>
   <br>
 
+<div class="Greylock Partners">
+    <% url = "https://greylock.com/category/greymatter/" %>
+
+    <% html_file = open(url).read %>
+    <% html_doc = Nokogiri::HTML(html_file) %>
+    <table>
+      <tr><h3>Greylock partners</h3></tr>
+      <% counter = 0 %>
+      <% html_doc.search('.post-article__info-title a').each do |element| %>
+      <% counter += 1 %>
+        <tr>
+          <% if counter < 16 %>
+            <td><a href="<%= element.attribute('href').value %>"><%= counter %>. <%= element.children.text %></a><br></td>
+          <% end %>
+        </tr>
+    </table>
+  <% end  %>
+</div>
+  <br>
 
 <div class="Index Ventures">
     <% url = "https://www.indexventures.com/perspectives/category/insights/" %>
@@ -104,7 +125,7 @@
         </tr>
     </table>
   <% end  %>
-  </div>
+</div>
   <br>
 
 <div class="Sequoia">
