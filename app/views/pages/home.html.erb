@@ -3,44 +3,8 @@
 
 <div class="container text-justify backg">
   <h1 class="text-center">VC Insights</h1>
-  <br>
-  <div class="HN">
-    <% url = "https://news.ycombinator.com/news" %>
 
-    <% html_file = open(url).read %>
-    <% html_doc = Nokogiri::HTML(html_file) %>
 
-    <table>
-      <tr><h3>Hacker News Front Page</h3></tr>
-      <% html_doc.search('.storylink').each do |element| %>
-      <% unless element.children.text.include? "Ask HN" %>
-        <tr>
-          <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
-        <br>
-        </tr>
-      <% end %>
-    </table>
-  <% end  %>
-  </div>
-
-  <br>
-  <div class="Economist">
-    <% url = "https://www.economist.com/" %>
-
-    <% html_file = open(url).read %>
-    <% html_doc = Nokogiri::HTML(html_file) %>
-
-    <table>
-      <tr><h3>The Economist</h3></tr>
-      <% html_doc.search('.headline-link').each do |element_2| %>
-        <tr>
-          <td><a href="https://www.economist.com/<%= element_2.attribute('href').value %>"><%= element_2.children.text %></a></td>
-        <br>
-        </tr>
-    </table>
-  <% end  %>
-  </div>
-  <br>
 
   <div class="Accel">
     <% url = "https://www.accel.com/" %>
@@ -49,10 +13,13 @@
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
       <tr><h3>Accel</h3></tr>
+      <% counter = 0 %>
       <% html_doc.search('.top-of-mind-preview a').each do |element| %>
+      <% counter += 1 %>
         <tr>
-          <td><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
-        <br>
+          <% if counter < 16 %>
+            <td><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= counter %>. <%= element.children.text %></a> <br> </td>
+          <% end %>
         </tr>
     </table>
   <% end  %>
@@ -70,9 +37,8 @@
       <% html_doc.search('.post-popular h3 a').each do |element| %>
       <% counter += 1 %>
         <tr>
-          <% if counter < 15 %>
-            <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
-            <br>
+          <% if counter < 16 %>
+            <td><a href="<%= element.attribute('href').value %>"> <%= counter %>. <%= element.children.text %></a><br></td>
           <% end %>
         </tr>
     </table>
@@ -91,9 +57,8 @@
       <% html_doc.search('.post-title').each do |element| %>
       <% counter += 1 %>
         <tr>
-          <% if counter < 15 %>
-            <td><a href="https://www.bvp.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
-             <br>
+          <% if counter < 16 %>
+            <td><a href="https://www.bvp.com<%= element.attribute('href').value %>"><%= counter %>. <%= element.children.text %></a> <br> </td>
           <% end %>
         </tr>
     </table>
@@ -108,14 +73,18 @@
     <% html_doc = Nokogiri::HTML(html_file) %>
     <table>
       <tr><h3>GGV Capital</h3></tr>
+       <% counter = 0 %>
       <% html_doc.search('.ct-link').each do |element| %>
         <tr>
-            <td><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
-          <br>
+            <% unless element.children.text.blank? %>
+                <% counter += 1 %>
+                <td><a href="<%= element.attribute('href').value %>"><%= counter %>. <%= element.children.text %></a> <br></td>
+            <% end %>
         </tr>
     </table>
   <% end  %>
   </div>
+  <br>
 
 
 <div class="Index Ventures">
@@ -129,10 +98,9 @@
       <% html_doc.search('.index-grid__list-item a').each do |element| %>
       <% counter += 1 %>
         <tr>
-          <% if counter < 15 %>
-            <td><a href="https://www.indexventures.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+          <% if counter < 16 %>
+            <td><a href="https://www.indexventures.com<%= element.attribute('href').value %>"><%= counter %>. <%= element.children.text %></a><br></td>
           <% end %>
-        <br>
         </tr>
     </table>
   <% end  %>
@@ -150,10 +118,9 @@
       <% html_doc.search('.build a').each do |element| %>
         <% counter += 1 %>
         <tr>
-          <% if counter < 15 %>
-            <td><a href="https://www.sequoiacap.com<%= element.attribute('href').value %>"><%= element.children.text %></a></td>
+          <% if counter < 16 %>
+            <td><a href="https://www.sequoiacap.com<%= element.attribute('href').value %>"><%= counter %>. <%= element.children.text %></a> <br></td>
            <% end %>
-        <br>
         </tr>
     </table>
   <% end  %>
