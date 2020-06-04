@@ -24,3 +24,7 @@ Index Ventures- Although just focussed on their portfolio companies
 
 Sequoia - Great Stuff on the build page
 
+
+
+Make Cards with images to make the page look better
+
