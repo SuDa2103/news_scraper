@@ -1,42 +1,94 @@
-<main>
-  <div class="Accel">
-    <% url = "https://www.accel.com/" %>
-    <ol class="gradient-list">
-      <% html_file = open(url).read %>
-      <% html_doc = Nokogiri::HTML(html_file) %>
-        <h3>Accel</h3>
-        <% counter = 0 %>
-        <% html_doc.search('.top-of-mind-preview a').each do |element| %>
-          <% counter += 1 %>
-            <% if counter < 16 %>
-               <li><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-            <% end %>
-        <% end  %>
-    </ol>
+<div class="row">
+  <div class="column">
+    <main>
+      <div class="Accel">
+        <% url = "https://www.accel.com/" %>
+        <ol class="gradient-list">
+          <% html_file = open(url).read %>
+          <% html_doc = Nokogiri::HTML(html_file) %>
+            <h3>Accel</h3>
+            <% counter = 0 %>
+            <% html_doc.search('.top-of-mind-preview a').each do |element| %>
+              <% counter += 1 %>
+                <% if counter < 16 %>
+                   <li><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
   </div>
-  <br>
-</main>
 
-<main>
-  <div class="Andreessen Horowitzl">
-    <% url = "https://a16z.com/" %>
-    <ol class="gradient-list">
-      <% html_file = open(url).read %>
-      <% html_doc = Nokogiri::HTML(html_file) %>
-        <h3>Andreessen Horowitz</h3>
-        <% counter = 0 %>
-        <% html_doc.search('.post-popular h3 a').each do |element| %>
-          <% counter += 1 %>
-            <% if counter < 16 %>
-               <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-            <% end %>
-        <% end  %>
-    </ol>
+  <div class="column">
+    <main>
+      <div class="GGV Capital">
+        <% url = "https://www.ggvc.com/engage/" %>
+        <ol class="gradient-list">
+          <% html_file = open(url).read %>
+          <% html_doc = Nokogiri::HTML(html_file) %>
+            <h3>GGV Capital</h3>
+            <% counter = 0 %>
+            <% html_doc.search('.ct-link').each do |element| %>
+                <% unless element.children.text.blank? %>
+                    <% counter += 1 %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+    <br>
+    </main>
   </div>
-  <br>
-</main>
+</div>
 
-<main>
+<div class="row">
+  <div class="column">
+    <main>
+      <div class="Andreessen Horowitzl">
+        <% url = "https://a16z.com/" %>
+        <ol class="gradient-list">
+          <% html_file = open(url).read %>
+          <% html_doc = Nokogiri::HTML(html_file) %>
+            <h3>Andreessen Horowitz</h3>
+            <% counter = 0 %>
+            <% html_doc.search('.post-popular h3 a').each do |element| %>
+              <% counter += 1 %>
+                <% if counter < 16 %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+
+  <div class="column">
+    <main>
+      <div class="Greylock Partners">
+        <% url = "https://greylock.com/category/greymatter/" %>
+        <ol class="gradient-list">
+          <% html_file = open(url).read %>
+          <% html_doc = Nokogiri::HTML(html_file) %>
+            <h3>Greylock Partners</h3>
+            <% counter = 0 %>
+            <% html_doc.search('.post-article__info-title a').each do |element| %>
+              <% counter += 1 %>
+                <% if counter < 16 %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <main>
   <div class="Bessemer Venture Partners">
     <% url = "https://www.bvp.com/atlas" %>
     <ol class="gradient-list">
@@ -55,45 +107,10 @@
   <br>
 </main>
 
-<main>
-  <div class="GGV Capital">
-    <% url = "https://www.ggvc.com/engage/" %>
-    <ol class="gradient-list">
-      <% html_file = open(url).read %>
-      <% html_doc = Nokogiri::HTML(html_file) %>
-        <h3>GGV Capital</h3>
-        <% counter = 0 %>
-        <% html_doc.search('.ct-link').each do |element| %>
-            <% unless element.children.text.blank? %>
-                <% counter += 1 %>
-               <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-            <% end %>
-        <% end  %>
-    </ol>
-  </div>
-  <br>
-</main>
 
-<main>
-  <div class="Greylock Partners">
-    <% url = "https://greylock.com/category/greymatter/" %>
-    <ol class="gradient-list">
-      <% html_file = open(url).read %>
-      <% html_doc = Nokogiri::HTML(html_file) %>
-        <h3>Greylock Partners</h3>
-        <% counter = 0 %>
-        <% html_doc.search('.post-article__info-title a').each do |element| %>
-          <% counter += 1 %>
-            <% if counter < 16 %>
-               <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-            <% end %>
-        <% end  %>
-    </ol>
   </div>
-  <br>
-</main>
-
-<main>
+  <div class="column">
+    <main>
   <div class="Index Ventures">
     <% url = "https://www.indexventures.com/perspectives/category/insights/" %>
     <ol class="gradient-list">
@@ -111,6 +128,12 @@
   </div>
   <br>
 </main>
+
+  </div>
+</div>
+
+
+
 
 <main>
   <div class="Sequoia">
