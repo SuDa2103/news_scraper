@@ -1,0 +1,165 @@
+<% require 'open-uri' %>
+<% require 'nokogiri' %>
+
+<div class="container backg">
+  <h1 class="text-center">VC Insights</h1>
+  <br>
+  <p> Venture Capital firms (VCs) aren't just a source of money. Many VCs post insightful content, inclduing reports on industries, the investments that they have made and in-depth analaysis of global trends. This content is useful reading for investors and founders alike. Below we keep track of the latest content that some of the world's most famous VCs are posting. </p>
+
+<div class="row">
+  <div class="column">
+    <main>
+      <div class="Accel">
+        <ol class="gradient-list">
+            <h3>Accel</h3>
+            <% counter = 0 %>
+            <% @links.each do |element| %>
+              <% counter += 1 %>
+                <% if counter < 16 %>
+                   <li><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+
+  <div class="column">
+    <main>
+      <div class="GGV Capital">
+        <ol class="gradient-list">
+            <h3>GGV Capital</h3>
+            <% counter = 0 %>
+            <% @links1.each do |element| %>
+                <% unless element.children.text.blank? %>
+                    <% counter += 1 %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+    <br>
+    </main>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <main>
+      <div class="Andreessen Horowitzl">
+        <% url = "https://a16z.com/" %>
+        <ol class="gradient-list">
+          <% html_file = open(url).read %>
+          <% html_doc = Nokogiri::HTML(html_file) %>
+            <h3>Andreessen Horowitz</h3>
+            <% counter = 0 %>
+            <% html_doc.search('.post-popular h3 a').each do |element| %>
+              <% counter += 1 %>
+                <% if counter < 16 %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+
+  <div class="column">
+    <main>
+      <div class="Greylock Partners">
+        <% url = "https://greylock.com/category/greymatter/" %>
+        <ol class="gradient-list">
+          <% html_file = open(url).read %>
+          <% html_doc = Nokogiri::HTML(html_file) %>
+            <h3>Greylock Partners</h3>
+            <% counter = 0 %>
+            <% html_doc.search('.post-article__info-title a').each do |element| %>
+              <% counter += 1 %>
+                <% if counter < 16 %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <main>
+  <div class="Bessemer Venture Partners">
+    <% url = "https://www.bvp.com/atlas" %>
+    <ol class="gradient-list">
+      <% html_file = open(url).read %>
+      <% html_doc = Nokogiri::HTML(html_file) %>
+        <h3>Bessemer Venture Partners</h3>
+        <% counter = 0 %>
+        <% html_doc.search('.post-title').each do |element| %>
+          <% counter += 1 %>
+            <% if counter < 16 %>
+               <li><a href="https://www.bvp.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+            <% end %>
+        <% end  %>
+    </ol>
+  </div>
+  <br>
+</main>
+
+
+  </div>
+  <div class="column">
+    <main>
+  <div class="Index Ventures">
+    <% url = "https://www.indexventures.com/perspectives/category/insights/" %>
+    <ol class="gradient-list">
+      <% html_file = open(url).read %>
+      <% html_doc = Nokogiri::HTML(html_file) %>
+        <h3>Index Ventures</h3>
+        <% counter = 0 %>
+        <% html_doc.search('.index-grid__list-item a').each do |element| %>
+          <% counter += 1 %>
+            <% if counter < 16 %>
+               <li><a href="https://www.indexventures.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+            <% end %>
+        <% end  %>
+    </ol>
+  </div>
+  <br>
+</main>
+
+  </div>
+</div>
+
+
+
+
+<main>
+  <div class="Sequoia">
+    <% url = "https://www.sequoiacap.com/build/" %>
+    <ol class="gradient-list">
+      <% html_file = open(url).read %>
+      <% html_doc = Nokogiri::HTML(html_file) %>
+        <h3>Sequoia</h3>
+        <% counter = 0 %>
+        <% html_doc.search('.build a').each do |element| %>
+          <% counter += 1 %>
+            <% if counter < 16 %>
+               <li><a href="https://www.sequoiacap.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+            <% end %>
+        <% end  %>
+    </ol>
+  </div>
+  <br>
+</main>
+
+<script>
+var linkList = document.querySelectorAll('main a');
+
+for(var i in linkList){
+ linkList[i].setAttribute('target', '_blank');
+}
+</script>
