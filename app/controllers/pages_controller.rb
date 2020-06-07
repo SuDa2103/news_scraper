@@ -50,4 +50,8 @@ class PagesController < ApplicationController
     html_doc6 = Nokogiri::HTML(html_file6)
     @links6 = html_doc6.search('.build a')
   end
+
+  def model
+
+  end
 end

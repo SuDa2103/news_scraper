@@ -1,0 +1,84 @@
+<% scraper = Scraper.new %>
+<% require 'open-uri' %>
+<% require 'nokogiri' %>
+
+<div class="container backg">
+  <h1 class="text-center">VC Insights</h1>
+  <br>
+  <p> Venture Capital firms (VCs) aren't just a source of money. Many VCs post insightful content, inclduing reports on industries, the investments that they have made and in-depth analaysis of global trends. This content is useful reading for investors and founders alike. Below we keep track of the latest content that some of the world's most famous VCs are posting. </p>
+
+<div class="row">
+  <div class="column">
+    <main>
+      <div class="Accel">
+        <ol class="gradient-list">
+            <h3>Accel</h3>
+            <% links = scraper.scrape('https://www.accel.com/', '.top-of-mind-preview a') %>
+            <% links.each do |element| %>
+                  <li><a href="https://www.accel.com<%= element.attributes["href"].value %>"><%= element.children.text %></a></li> <br>
+                  <% end %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+
+
+  <div class="column">
+    <main>
+      <div class="GGV Capital">
+        <ol class="gradient-list">
+            <h3>GGV Capital</h3>
+            <% links = scraper.scrape('https://www.ggvc.com/engage/', '.ct-link') %>
+            <% links.each do |element| %>
+                <% unless element.children.text.blank? %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+                <% end %>
+            <% end  %>
+        </ol>
+      </div>
+    <br>
+    </main>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <main>
+      <div class="Andreessen Horowitzl">
+        <ol class="gradient-list">
+            <h3>Andreessen Horowitz</h3>
+            <% links = scraper.scrape('https://a16z.com/', '.post-popular h3 a') %>
+            <% links.each do |element| %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+
+  <div class="column">
+    <main>
+      <div class="Greylock Partners">
+        <ol class="gradient-list">
+            <h3>Greylock Partners</h3>
+            <% links = scraper.scrape('https://greylock.com/category/greymatter/', '.post-article__info-title a') %>
+            <% links.each do |element| %>
+                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+            <% end  %>
+        </ol>
+      </div>
+      <br>
+    </main>
+  </div>
+</div>
+
+
+<script>
+var linkList = document.querySelectorAll('main a');
+
+for(var i in linkList){
+ linkList[i].setAttribute('target', '_blank');
+}
+</script>
