@@ -29,5 +29,6 @@ class PagesController < ApplicationController
   end
 
   def rake
+    @vclinks = $vclinks
   end
 end
