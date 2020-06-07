@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :links
   root to: 'pages#home'
   get 'about', to: 'pages#about'
   get 'layout', to: 'pages#layout'

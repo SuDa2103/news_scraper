@@ -1,5 +1,6 @@
 <% require 'open-uri' %>
 <% require 'nokogiri' %>
+<%= require 'csv' %>
 
 <div class="container backg">
   <h1 class="text-center">VC Insights</h1>
@@ -12,14 +13,13 @@
       <div class="Accel">
         <ol class="gradient-list">
             <h3>Accel</h3>
-            <% counter = 0 %>
-            <% $vclinks.each do |element| %>
-              <% counter += 1 %>
-                <% if counter < 16 %>
-                   <li><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+              <% filepath = 'accel.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="https://www.accel.com<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
                 <% end %>
-            <% end  %>
-        </ol>
       </div>
       <br>
     </main>
@@ -27,37 +27,35 @@
 
   <div class="column">
     <main>
-      <div class="GGV Capital">
+      <div class="GGVC">
         <ol class="gradient-list">
-            <h3>GGV Capital</h3>
-            <% counter = 0 %>
-            <% $vclinks1.each do |element| %>
-                <% unless element.children.text.blank? %>
-                    <% counter += 1 %>
-                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+            <h3>GGVC</h3>
+              <% filepath = 'GGVC.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
                 <% end %>
-            <% end  %>
-        </ol>
       </div>
-    <br>
+      <br>
     </main>
   </div>
 </div>
 
-<div class="row">
+  <div class="row">
   <div class="column">
     <main>
-      <div class="Andreessen Horowitzl">
+      <div class="Andreessen Horowitz">
         <ol class="gradient-list">
             <h3>Andreessen Horowitz</h3>
-            <% counter = 0 %>
-            <% $vclinks2.each do |element| %>
-              <% counter += 1 %>
-                <% if counter < 16 %>
-                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+              <% filepath = 'Andreessen.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
                 <% end %>
-            <% end  %>
-        </ol>
       </div>
       <br>
     </main>
@@ -68,78 +66,71 @@
       <div class="Greylock Partners">
         <ol class="gradient-list">
             <h3>Greylock Partners</h3>
-            <% counter = 0 %>
-            <% $vclinks3.each do |element| %>
-              <% counter += 1 %>
-                <% if counter < 16 %>
-                   <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
+              <% filepath = 'Greylock.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
                 <% end %>
-            <% end  %>
-        </ol>
       </div>
       <br>
     </main>
   </div>
 </div>
 
-<div class="row">
+  <div class="row">
   <div class="column">
     <main>
-  <div class="Bessemer Venture Partners">
-    <ol class="gradient-list">
-        <h3>Bessemer Venture Partners</h3>
-        <% counter = 0 %>
-        <% $vclinks4.each do |element| %>
-          <% counter += 1 %>
-            <% if counter < 16 %>
-               <li><a href="https://www.bvp.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-            <% end %>
-        <% end  %>
-    </ol>
+      <div class="Bessemer Venture Partners">
+        <ol class="gradient-list">
+            <h3>Bessemer Venture Partners</h3>
+              <% filepath = 'BVP.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="https://www.bvp.com<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
   </div>
-  <br>
-</main>
 
-
-  </div>
   <div class="column">
     <main>
-  <div class="Index Ventures">
-    <ol class="gradient-list">
-        <h3>Index Ventures</h3>
-        <% counter = 0 %>
-        <% $vclinks5.each do |element| %>
-          <% counter += 1 %>
-            <% if counter < 16 %>
-               <li><a href="https://www.indexventures.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-            <% end %>
-        <% end  %>
-    </ol>
-  </div>
-  <br>
-</main>
-
+      <div class="Index Ventures">
+        <ol class="gradient-list">
+            <h3>Index Ventures</h3>
+              <% filepath = 'Index.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="https://www.indexventures.com<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
   </div>
 </div>
-
-
-
 
 <main>
   <div class="Sequoia">
     <ol class="gradient-list">
         <h3>Sequoia</h3>
+        <% filepath = 'Sequoia.csv' %>
+        <% csv_options = { col_sep: ','} %>
         <% counter = 0 %>
-        <% $vclinks6.each do |element| %>
+        <% CSV.foreach(filepath, csv_options) do |row| %>
+          <li><a href="https://www.sequoiacap.com<%= row[0] %>"><%= row[1] %></a></li> <br>
           <% counter += 1 %>
-            <% if counter < 16 %>
-               <li><a href="https://www.sequoiacap.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-            <% end %>
-        <% end  %>
+        <% end %>
     </ol>
   </div>
   <br>
 </main>
+
 
 <script>
 var linkList = document.querySelectorAll('main a');
