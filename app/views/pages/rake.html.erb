@@ -1,0 +1,141 @@
+<% require 'open-uri' %>
+<% require 'nokogiri' %>
+<%= require 'csv' %>
+
+<div class="container backg">
+  <h1 class="text-center">VC Insights</h1>
+  <br>
+  <p> Venture Capital firms (VCs) aren't just a source of money. Many VCs post insightful content, inclduing reports on industries, the investments that they have made and in-depth analaysis of global trends. This content is useful reading for investors and founders alike. Below we keep track of the latest content that some of the world's most famous VCs are posting. </p>
+
+<div class="row">
+  <div class="column">
+    <main>
+      <div class="Accel">
+        <ol class="gradient-list">
+            <h3>Accel</h3>
+              <% filepath = 'accel.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="https://www.accel.com<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
+  </div>
+
+  <div class="column">
+    <main>
+      <div class="GGVC">
+        <ol class="gradient-list">
+            <h3>GGVC</h3>
+              <% filepath = 'GGVC.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
+  </div>
+</div>
+
+  <div class="row">
+  <div class="column">
+    <main>
+      <div class="Andreessen Horowitz">
+        <ol class="gradient-list">
+            <h3>Andreessen Horowitz</h3>
+              <% filepath = 'Andreessen.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
+  </div>
+
+  <div class="column">
+    <main>
+      <div class="Greylock Partners">
+        <ol class="gradient-list">
+            <h3>Greylock Partners</h3>
+              <% filepath = 'Greylock.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
+  </div>
+</div>
+
+  <div class="row">
+  <div class="column">
+    <main>
+      <div class="Bessemer Venture Partners">
+        <ol class="gradient-list">
+            <h3>Bessemer Venture Partners</h3>
+              <% filepath = 'BVP.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="https://www.bvp.com<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
+  </div>
+
+  <div class="column">
+    <main>
+      <div class="Index Ventures">
+        <ol class="gradient-list">
+            <h3>Index Ventures</h3>
+              <% filepath = 'Index.csv' %>
+              <% csv_options = { col_sep: ','} %>
+              <% counter = 0 %>
+                <% CSV.foreach(filepath, csv_options) do |row| %>
+                   <li><a href="https://www.indexventures.com<%= row[0] %>"><%= row[1] %></a></li> <br>
+                   <% counter += 1 %>
+                <% end %>
+      </div>
+      <br>
+    </main>
+  </div>
+</div>
+
+<main>
+  <div class="Sequoia">
+    <ol class="gradient-list">
+        <h3>Sequoia</h3>
+        <% filepath = 'Sequoia.csv' %>
+        <% csv_options = { col_sep: ','} %>
+        <% counter = 0 %>
+        <% CSV.foreach(filepath, csv_options) do |row| %>
+          <li><a href="https://www.sequoiacap.com<%= row[0] %>"><%= row[1] %></a></li> <br>
+          <% counter += 1 %>
+        <% end %>
+    </ol>
+  </div>
+  <br>
+</main>
+
+
+<script>
+var linkList = document.querySelectorAll('main a');
+
+for(var i in linkList){
+ linkList[i].setAttribute('target', '_blank');
+}
+</script>

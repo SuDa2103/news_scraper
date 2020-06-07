@@ -27,4 +27,7 @@ class PagesController < ApplicationController
 
   def model
   end
+
+  def rake
+  end
 end
