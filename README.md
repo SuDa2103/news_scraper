@@ -8,7 +8,6 @@ FT most read
 
 TechCrunch and Medium don't allow scraping (I think), all of the a tags hidden when you scrape
 
-VCs that have articles that can be scraped:
 
 Accel
 
