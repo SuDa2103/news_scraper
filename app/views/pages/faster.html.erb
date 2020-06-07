@@ -13,7 +13,7 @@
         <ol class="gradient-list">
             <h3>Accel</h3>
             <% counter = 0 %>
-            <% @links.each do |element| %>
+            <% $links.each do |element| %>
               <% counter += 1 %>
                 <% if counter < 16 %>
                    <li><a href="https://www.accel.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
@@ -31,7 +31,7 @@
         <ol class="gradient-list">
             <h3>GGV Capital</h3>
             <% counter = 0 %>
-            <% @links1.each do |element| %>
+            <% $links1.each do |element| %>
                 <% unless element.children.text.blank? %>
                     <% counter += 1 %>
                    <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
@@ -51,7 +51,7 @@
         <ol class="gradient-list">
             <h3>Andreessen Horowitz</h3>
             <% counter = 0 %>
-            <% @links2.each do |element| %>
+            <% $links2.each do |element| %>
               <% counter += 1 %>
                 <% if counter < 16 %>
                    <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
@@ -69,7 +69,7 @@
         <ol class="gradient-list">
             <h3>Greylock Partners</h3>
             <% counter = 0 %>
-            <% @links3.each do |element| %>
+            <% $links3.each do |element| %>
               <% counter += 1 %>
                 <% if counter < 16 %>
                    <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
@@ -89,7 +89,7 @@
     <ol class="gradient-list">
         <h3>Bessemer Venture Partners</h3>
         <% counter = 0 %>
-        <% @links4.each do |element| %>
+        <% $links4.each do |element| %>
           <% counter += 1 %>
             <% if counter < 16 %>
                <li><a href="https://www.bvp.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
@@ -108,7 +108,7 @@
     <ol class="gradient-list">
         <h3>Index Ventures</h3>
         <% counter = 0 %>
-        <% @links5.each do |element| %>
+        <% $links5.each do |element| %>
           <% counter += 1 %>
             <% if counter < 16 %>
                <li><a href="https://www.indexventures.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
@@ -130,7 +130,7 @@
     <ol class="gradient-list">
         <h3>Sequoia</h3>
         <% counter = 0 %>
-        <% @links6.each do |element| %>
+        <% $links6.each do |element| %>
           <% counter += 1 %>
             <% if counter < 16 %>
                <li><a href="https://www.sequoiacap.com<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
