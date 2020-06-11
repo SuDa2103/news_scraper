@@ -3,19 +3,20 @@
 <% require 'nokogiri' %>
 
 <div class="container backg">
-  <h1 class="text-center">VC Insights</h1>
+  <h1 class="text-center">Inspiration</h1>
   <br>
-  <p> Venture Capital firms (VCs) aren't just a source of money. Many VCs post insightful content, inclduing reports on industries, the investments that they have made and in-depth analaysis of global trends. This content is useful reading for investors and founders alike. Below we keep track of the latest content that some of the world's most famous VCs are posting. </p>
+  <p> If you read some of the founder interviews on the site, you’ll see many of them talking about choosing a problem that you’re willing to spend the next ten years on. But how do you find the problems you want to spend the next ten years of life on? Below are links to some of the latest from some of the best blogs about tech, business and the world at large, to get you thinking </p>
 
 <div class="row">
   <div class="column">
     <main>
-      <div class="Accel">
+      <div class="AVC">
         <ol class="gradient-list">
-            <h3>Accel</h3>
-            <% links = scraper.scrape('https://www.accel.com/', '.top-of-mind-preview a') %>
+            <h3>AVC </h3>
+            <p> This is a blog written by Fred Wilson, the founder of Union Square Ventures. He is a prominent Venture Capitalist and he likes to post his personal thoughts on here. </p>
+            <% links = scraper.scrape('https://avc.com/', '.text-black a') %>
             <% links.each do |element| %>
-                  <li><a href="https://www.accel.com<%= element.attributes["href"].value %>"><%= element.children.text %></a></li> <br>
+                  <li><a href="<%= element.attributes["href"].value %>"><%= element.children.text %></a></li> <br>
                   <% end %>
         </ol>
       </div>
@@ -26,14 +27,13 @@
 
   <div class="column">
     <main>
-      <div class="GGV Capital">
+      <div class="Stratechery">
         <ol class="gradient-list">
-            <h3>GGV Capital</h3>
-            <% links = scraper.scrape('https://www.ggvc.com/engage/', '.ct-link') %>
+            <h3>Stratechery</h3>
+            <p> Written by Ben Thompson. He has previously worked for Apple and Microsoft, among other companies, and now writes for the blog full time. The weekly articles (listed here) are free.  </p>
+            <% links = scraper.scrape('https://stratechery.com/', ' .site-main .entry-title a') %>
             <% links.each do |element| %>
-                <% unless element.children.text.blank? %>
                    <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
-                <% end %>
             <% end  %>
         </ol>
       </div>
