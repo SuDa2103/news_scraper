@@ -5,7 +5,7 @@
 <div class="container backg">
   <h1 class="text-center">Inspiration</h1>
   <br>
-  <p> If you read some of the founder interviews on the site, you’ll see many of them talking about choosing a problem that you’re willing to spend the next ten years on. But how do you find the problems you want to spend the next ten years of life on? Below are links to some of the latest from some of the best blogs about tech, business and the world at large, to get you thinking </p>
+  <p> If you read some of the founder interviews on the site, you’ll see many of them talking about choosing a problem that you’re willing to spend the next ten years on. But how do you find the problems you want to spend the next ten years of life on? Below are links to some of the latest from some of the best blogs about tech, business and the world at large, to get you thinking. </p>
 
 <div class="row">
   <div class="column">
@@ -45,10 +45,11 @@
 <div class="row">
   <div class="column">
     <main>
-      <div class="Andreessen Horowitzl">
+      <div class="The Verge">
         <ol class="gradient-list">
-            <h3>Andreessen Horowitz</h3>
-            <% links = scraper.scrape('https://a16z.com/', '.post-popular h3 a') %>
+            <h3>The Verge</h3>
+            <p>Their mission is to cover "the intersection of technology, science, art, and culture."</p>
+            <% links = scraper.scrape('https://www.theverge.com/features', '.c-entry-box--compact__title a') %>
             <% links.each do |element| %>
                    <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
             <% end  %>
@@ -63,7 +64,7 @@
       <div class="Greylock Partners">
         <ol class="gradient-list">
             <h3>Greylock Partners</h3>
-            <% links = scraper.scrape('https://greylock.com/category/greymatter/', '.post-article__info-title a') %>
+            <% links = scraper.scrape('https://techcrunch.com/', ' a') %>
             <% links.each do |element| %>
                    <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
             <% end  %>
