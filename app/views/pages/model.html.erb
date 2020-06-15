@@ -64,7 +64,8 @@
       <div class="Hacker News">
         <ol class="gradient-list">
             <h3>Hacker News</h3>
-            <% links = scraper.scrape('https://techcrunch.com/', ' a') %>
+            <p>Run by Y Combinator. Users post links to the most interesting things they're reading.</p>
+            <% links = scraper.scrape('https://news.ycombinator.com/news', '.storylink') %>
             <% links.each do |element| %>
                    <li><a href="<%= element.attribute('href').value %>"><%= element.children.text %></a></li> <br>
             <% end  %>
